@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title></title>
+  </head>
+  <body>
+     <p>
+        Currently the API for screen capturing is supported only by Google Chrome, Canary and Chromium by enabling an experimental flag. In order to enable the flag:
+        <ul>
+<li>Go to chrome://flags/#enable-usermedia-screen-capture</li>
+<li>Enable - "Enable screen capture support in getUserMedia()"</li>
+<li>Restart your browser.</li>
+</ul>
+     </p>
+    <button id="capture-button">Capture</button>
+    <button id="record-button">Record</button>
+    <br>
+    <video id="result-video" autoplay></video>
+    <img id="result-image">
+    <script src="src/index.js"></script>
+    <script src="bower_components/whammy/whammy.js"></script>
+    <script>
+      function showImage(img) {
+        document.querySelector('#result-image').src = img;
+      }
+      function showVideo(blob) {
+        document.querySelector('#result-video').src = URL.createObjectURL(blob);
+      }
+      document.querySelector('#capture-button').onclick = function () {
+        JSCapture.capture({
+          done: showImage,
+          fail: function () {
+            alert('Error, while capturing your screen');
+          },
+          x: 10,
+          y: 100,
+          width: 800,
+          height: 400,
+          scale: 1.5
+        });
+      };
+      document.querySelector('#record-button').onclick = function () {
+        JSCapture.record({
+          done: showVideo,
+          fail: function () {
+            alert('Error, while recording your screen');
+          },
+          duration: 10000,
+          scale: 0.5
+        });
+      };
+    </script>
+  </body>
+</html>
