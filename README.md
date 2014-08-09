@@ -1,6 +1,12 @@
-# Warning!
+## How to use
 
-**JSCapture won't work in Chrome 37+** due to removal of the experimental desktop sharing API.
+This uses `getUserMedia` for screen capturing. Currently the API for screen capturing is supported only by Google Chrome, Canary and Chromium by enabling an experimental flag.
+
+# Currently it's only supported by Chrome. To do it: 
+
+* Go to chrome://flags/#enable-usermedia-screen-capture
+* Enable - "Enable screen capture support in getUserMedia()"
+* Restart your browser.
 
 # JSCapture
 
@@ -9,22 +15,6 @@
 JSCapture is screen capturing library implemented with pure JavaScript and HTML5.
 
 It allows you to make screenshots and record a video of your desktop from your browser.
-
-## How to use
-
-JSCapture uses `getUserMedia` for screen capturing. Currently the API for screen capturing is supported only by Google Chrome, Canary and Chromium by enabling an experimental flag.
-
-In order to enable the flag:
-
-* Go to chrome://flags/#enable-usermedia-screen-capture
-* Enable - "Enable screen capture support in getUserMedia()"
-* Restart your browser.
-
-When you're done and you open chrome://flags/#enable-usermedia-screen-capture, you should see something like:
-
-![Chrome flags](http://bulgariajs.org/files/getusermedia-flag.png)
-
-Note that you MUST use `https` in order to be allowed to do screen recording. Since there are some **very expensive** operations happening when each frame is being captured the video won't be useful when you're capturing a high resolution. In order to handle this issue use the `scale` property.
 
 ## API
 
@@ -52,17 +42,6 @@ Note that you MUST use `https` in order to be allowed to do screen recording. Si
 * `JSCapture.stopRecording(fn)` - Stops the video recording.
   * `fn` - (Function) default value is `undefined`. A callback, which accepts the video (as a Blob), result of the screen recording, as an argument. Note that the callback provided in `config.done` won't be invoked if `JSCapture.stopRecording(fn)` is called.
 * `JSCapture.isRecording()` - (Boolean) Returns whether the screen recording have been started.
-
-## Demo
-
-[Here](https://mgechev.github.io/jscapture/)
-
-## Contributors
-
-[![mgechev](http://www.gravatar.com/avatar/82bafb0432ce4ccc9dcc26f94d5fe5bc?s=117)](https://github.com/mgechev) |[![jbrooksuk](http://www.gravatar.com/avatar/13616b6551a3854378f9e6fea964e519?s=117)](https://github.com/jbrooksuk) |[![themgt](http://www.gravatar.com/avatar/8ad9f63b9bd8e84da55eb083d25344db?s=117)](https://github.com/themgt) |[![hemanth](http://www.gravatar.com/avatar/d32a6bf2b43bf62a7212f0c793d76319?s=117)](https://github.com/hemanth) |
-:---: |:---: |:---: |:---: |
-[mgechev](https://github.com/mgechev) |[jbrooksuk](https://github.com/jbrooksuk) |[themgt](https://github.com/themgt) |[hemanth](https://github.com/hemanth) |
-
 
 ## License
 
