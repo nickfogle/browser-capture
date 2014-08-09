@@ -1,14 +1,14 @@
+# JS Screen Capture
+
+
 ## How to use
 
 This uses `getUserMedia` for screen capturing. Currently the API for screen capturing is supported only by Google Chrome, Canary and Chromium by enabling an experimental flag.
-
-# Currently it's only supported by Chrome. To do it: 
 
 * Go to chrome://flags/#enable-usermedia-screen-capture
 * Enable - "Enable screen capture support in getUserMedia()"
 * Restart your browser.
 
-# JSCapture
 
 **The flag #enable-usermedia-screen-capture [won't be available](https://codereview.chromium.org/270353002) at Chrome 35 Stable and later versions**
 
